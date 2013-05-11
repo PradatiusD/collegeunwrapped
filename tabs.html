@@ -1,41 +1,5 @@
-
-<!-- old html -->
-
-<li class="active"><a href="#" class="filterall active" data-value="*"> All</a></li>
-<li class="segment-2"><a href="#" data-value="academics" title="View all projects filed under Academics">Academics</a>
-</li>
-<li class="segment-2"><a href="#" data-value="admissions" title="View all projects filed under Admissions">Admissions</a>
-</li>
-<li class="segment-2"><a href="#" data-value="jobs" title="View all projects filed under After Harvard">After Harvard</a>
-</li>
-<li class="segment-2"><a href="#" data-value="campus-life" title="View all projects filed under Campus Life" class="active">Campus Life</a>
-</li>
-<li class="segment-2"><a href="#" data-value="extracurriculars" title="View all projects filed under Extracurriculars" class="active">Extracurriculars</a>
-</li>
-<li class="segment-2"><a href="#" data-value="featured" title="View all projects filed under Featured">Featured</a>
-</li>
-<li class="segment-2"><a href="#" data-value="graduate-school" title="View all projects filed under Graduate School">Graduate School</a>
-</li>
-<li class="segment-2"><a href="#" data-value="spotlights" title="View all projects filed under Spotlights">Spotlights</a>
-</li>
-<li class="segment-2"><a href="#" data-value="virtual-tour" title="View all projects filed under Virtual Tour">Virtual Tour</a>
-</li>
-
-<!-- new html -->
-<li class="segment-2"><a href="#" data-value="featured" title="View all projects filed under Featured">Featured</a>
-</li>
-<li class="segment-2"><a href="#" data-value="admissions" title="View all projects filed under Admissions">Admissions</a>
-</li>
-<li class="segment-2"><a href="#" data-value="campus-life" title="View all projects filed under Campus Life" class="active">Campus Life</a>
-</li>
-<li class="segment-2"><a href="#" data-value="academics" title="View all projects filed under Academics">Academics</a>
-</li>
-<li class="segment-2"><a href="#" data-value="jobs" title="View all projects filed under After Harvard">After Harvard</a>
-</li>
-<li class="segment-2"><a href="#" data-value="graduate-school" title="View all projects filed under Graduate School">Graduate School</a>
-</li>
-<li class="segment-2"><a href="#" data-value="virtual-tour" title="View all projects filed under Virtual Tour">Virtual Tour</a>
-</li>
-
-<!-- compressed -->
-<li class="active"><a href="#" class="filterall active" data-value="*"> All</a></li><li class="segment-2"><a href="#" data-value="featured" title="View all projects filed under Featured">Featured</a></li><li class="segment-2"><a href="#" data-value="admissions" title="View all projects filed under Admissions">Admissions</a></li><li class="segment-2"><a href="#" data-value="campus-life" title="View all projects filed under Campus Life" class="active">Campus Life</a></li><li class="segment-2"><a href="#" data-value="academics" title="View all projects filed under Academics">Academics</a></li><li class="segment-2"><a href="#" data-value="jobs" title="View all projects filed under After Harvard">After Harvard</a></li><li class="segment-2"><a href="#" data-value="graduate-school" title="View all projects filed under Graduate School">Graduate School</a></li><li class="segment-2"><a href="#" data-value="virtual-tour" title="View all projects filed under Virtual Tour">Virtual Tour</a></li>
+<!-- JQuery to remove all and force click featured -->
+<script>
+	jQuery('.filterall').hide();
+	jQuery('.segment-2').eq(0).css('background','none').find('a').trigger('click')	
+</script>

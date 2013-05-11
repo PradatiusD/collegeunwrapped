@@ -16,10 +16,10 @@ Template Name: Homepage
 
 <div class="container clearfix" id="loadingcontainer">
 
-	<div class="sixteen columns loadingcontainer">
-		<div class='ajaxloading'></div>
-	</div>
-	<div class="clear"></div>
+    <div class="sixteen columns loadingcontainer">
+        <div class='ajaxloading'></div>
+    </div>
+    <div class="clear"></div>
     
 </div>
 <!-- Load Container Post
@@ -41,7 +41,7 @@ Template Name: Homepage
         <div class="sixteen columns alpha">
             <ul class="filter <?php echo ($filter == 'Fade') ? 'filterfade' : 'filtershuffle'; ?>">
                 <li class="active"><a href="#" class="filterall" data-value="*"> <?php _e('All', 'framework'); ?></a></li>
-                <?php wp_list_categories(array('title_li' => '', 'taxonomy' => 'sort', 'show_option_none'   => '', 'walker' => new Walker_Portfolio_Filter())); ?>
+                <?php wp_list_categories(array('title_li' => '', 'taxonomy' => 'sort', 'orderby'=> 'slug',  'show_option_none'   => '', 'walker' => new Walker_Portfolio_Filter())); ?>
             </ul>
         </div>
         <div class="clear"></div>
@@ -52,28 +52,28 @@ Template Name: Homepage
     <div class="slideshowpreload"></div>
     <?php if ( $homepagenumber = get_option('of_homepage_number') ) { echo '<!--'.$homepagenumber.' Projects -->'; } else { $homepagenumber = 30;} ?>
         <?php $loop = new WP_Query( array( 'post_type' => 'portfolio', 'posts_per_page' => $homepagenumber ) ); $counter = 1;
-		
-		    while ( $loop->have_posts() ) : $loop->the_post(); 
-					  
-			$post_url = get_permalink(); //Get Permalink for post
-			$terms = get_the_terms( get_the_ID(), 'sort' );
-			
-			 $thumb = get_post_meta($post->ID,'_thumbnail_id',false); $thumb = wp_get_attachment_image_src($thumb[0], 'portfoliosmall', false);  // URL of Featured Full Image
-    		 $thumb2 = MultiPostThumbnails::get_post_thumbnail_id('portfolio', 'second-slide', $post->ID); $thumb2 = wp_get_attachment_image_src($thumb2, 'portfoliosmall', false); // URL of Second Slide Full Image
-	         $thumb3 = MultiPostThumbnails::get_post_thumbnail_id('portfolio', 'third-slide', $post->ID); $thumb3 = wp_get_attachment_image_src($thumb3, 'portfoliosmall', false); // URL of Third Slide Full Image
-	         $thumb4 = MultiPostThumbnails::get_post_thumbnail_id('portfolio', 'fourth-slide', $post->ID); $thumb4 = wp_get_attachment_image_src($thumb4, 'portfoliosmall', false); // URL of Fourth Slide Full Image
-	         $thumb5 = MultiPostThumbnails::get_post_thumbnail_id('portfolio', 'fifth-slide', $post->ID); $thumb5 = wp_get_attachment_image_src($thumb5, 'portfoliosmall', false); // URL of Fifth Slide Full Image
-	         $thumb6 = MultiPostThumbnails::get_post_thumbnail_id('portfolio', 'sixth-slide', $post->ID); $thumb6 = wp_get_attachment_image_src($thumb6, 'portfoliosmall', false); // URL of Sixth Slide Full Image
-		?>
+        
+            while ( $loop->have_posts() ) : $loop->the_post(); 
+                      
+            $post_url = get_permalink(); //Get Permalink for post
+            $terms = get_the_terms( get_the_ID(), 'sort' );
+            
+             $thumb = get_post_meta($post->ID,'_thumbnail_id',false); $thumb = wp_get_attachment_image_src($thumb[0], 'portfoliosmall', false);  // URL of Featured Full Image
+             $thumb2 = MultiPostThumbnails::get_post_thumbnail_id('portfolio', 'second-slide', $post->ID); $thumb2 = wp_get_attachment_image_src($thumb2, 'portfoliosmall', false); // URL of Second Slide Full Image
+             $thumb3 = MultiPostThumbnails::get_post_thumbnail_id('portfolio', 'third-slide', $post->ID); $thumb3 = wp_get_attachment_image_src($thumb3, 'portfoliosmall', false); // URL of Third Slide Full Image
+             $thumb4 = MultiPostThumbnails::get_post_thumbnail_id('portfolio', 'fourth-slide', $post->ID); $thumb4 = wp_get_attachment_image_src($thumb4, 'portfoliosmall', false); // URL of Fourth Slide Full Image
+             $thumb5 = MultiPostThumbnails::get_post_thumbnail_id('portfolio', 'fifth-slide', $post->ID); $thumb5 = wp_get_attachment_image_src($thumb5, 'portfoliosmall', false); // URL of Fifth Slide Full Image
+             $thumb6 = MultiPostThumbnails::get_post_thumbnail_id('portfolio', 'sixth-slide', $post->ID); $thumb6 = wp_get_attachment_image_src($thumb6, 'portfoliosmall', false); // URL of Sixth Slide Full Image
+        ?>
         <!-- Portfolio Item
 ================================================== -->
 
 <div class="three columns nopadding portfolioitem isobrick  <?php if ($terms) { foreach ($terms as $term) { echo strtolower(preg_replace('/\s+/', '-', $term->slug)). ' '; } } ?>" id="project-<?php the_ID(); ?>">
-	<?php if ($browser !== 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_1_3 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7E18 Safari/528.16') : ?>
+    <?php if ($browser !== 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_1_3 like Mac OS X; en-us) AppleWebKit/528.18 (KHTML, like Gecko) Version/4.0 Mobile/7E18 Safari/528.16') : ?>
             <div class="flexslider">
             <?php if ($thumbhover = get_option('of_thumb_hover')) : 
-				if($thumbhover == 'Title') : ?>
-          			 <h3 class="thumbnailtitle" data-url="<?php the_ID(); ?>"><?php the_title();?></h3>
+                if($thumbhover == 'Title') : ?>
+                     <h3 class="thumbnailtitle" data-url="<?php the_ID(); ?>"><?php the_title();?></h3>
                 <?php endif; endif; ?>
            
                 <ul class="slides">
@@ -112,7 +112,7 @@ Template Name: Homepage
  
             </div>
     <?php else : ?>
-    		<a href="<?php echo $post_url; ?>" data-url="<?php the_ID(); ?>">
+            <a href="<?php echo $post_url; ?>" data-url="<?php the_ID(); ?>">
               <img src="<?php  echo $thumb[0]; ?>" alt="" class="scale-with-grid"/>
             </a>
     <?php endif; ?>        
@@ -140,21 +140,21 @@ Template Name: Homepage
     <div class="four columns newspost">
         <h4><?php if ($newstitle = get_option('of_news_title')) { echo $newstitle; } else { echo 'Latest News'; }?></h4>
         <?php if ($newsdesc = get_option('of_news_desc')) { echo '<p>'.$newsdesc.'</p>'; } else { echo '<p>Check out the latest news and information from the blog.</p>'; }?> 
-		<?php if ($newsbutton = get_option('of_news_button')) { ?>
-        <?php echo '<p><a  class="button" href="'. get_permalink( get_option( 'page_for_posts' ) ).'" alt="'.__('Blog Posts', 'framework').'">'.$newsbutton.'</a></p>'; } ?>	
+        <?php if ($newsbutton = get_option('of_news_button')) { ?>
+        <?php echo '<p><a  class="button" href="'. get_permalink( get_option( 'page_for_posts' ) ).'" alt="'.__('Blog Posts', 'framework').'">'.$newsbutton.'</a></p>'; } ?>    
     </div>
     <?php 
-	if ($newscat = get_option('of_news_category')) {
-		$the_query = new WP_Query(array('category_name' => $newscat,'showposts' => 3));
-	} else {
-		$the_query = new WP_Query(array('showposts' => 3));
-	}
+    if ($newscat = get_option('of_news_category')) {
+        $the_query = new WP_Query(array('category_name' => $newscat,'showposts' => 3));
+    } else {
+        $the_query = new WP_Query(array('showposts' => 3));
+    }
     while ($the_query->have_posts()) : $the_query->the_post(); ?>
     <div class="four columns widget news-widget-item">
-    	<div class="homeblogitem">
+        <div class="homeblogitem">
         <div class="homeblogimage">
             <?php /* if the post has a WP 2.9+ Thumbnail */
-					if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) : ?>
+                    if ( (function_exists('has_post_thumbnail')) && (has_post_thumbnail()) ) : ?>
             <a title="<?php printf(__('Permanent Link to %s', 'framework'), get_the_title()); ?>" href="<?php the_permalink(); ?>">
             <?php the_post_thumbnail('blogsmall', array('class' => 'scale-with-grid')); /* post thumbnail settings configured in functions.php */ ?>
             </a>
@@ -167,9 +167,9 @@ Template Name: Homepage
         <!--Blog Post Title-->
         <!--Blog Excerpt-->
         <?php
-				global $more;    // Declare global $more (before the loop).
-				$more = 0;       // Set (inside the loop) to display content above the more tag.
-				the_content(__('Read more...', 'framework')); ?>
+                global $more;    // Declare global $more (before the loop).
+                $more = 0;       // Set (inside the loop) to display content above the more tag.
+                the_content(__('Read more...', 'framework')); ?>
     </div>
     </div>
     <?php endwhile;?>
