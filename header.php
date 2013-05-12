@@ -167,10 +167,10 @@ if($topbar == 'On') : ?>
     float: right;
     display: block;
     position: relative;
-    top: 108px;
+    top: 93px;
     left: 123px;
     text-align: right;
-"><!-- Styles for Top Panel -->
+"><!-- Styles Social Nav -->
 <style>
     .fb-like, .twitter-follow-button {
     display:inline-block;
@@ -179,10 +179,10 @@ if($topbar == 'On') : ?>
         display:inline-block;
     }
 </style>
-<!-- For Top Panel Content -->
+<!-- Social Nav Content -->
 
-Join, share, and help us spread the word:
-<a href="http://facebook.com/collegeunwrapped" target="_blank"><img style="margin-bottom:0px;width:25px; height:25px" class="alignnone size-full wp-image-329" alt="icon-facebook" src="http://kiajovanie.com/wp-content/uploads/2013/05/icon-facebook.png" width="50" height="50" /></a> <a href="http://kiajovanie.com/wp-content/uploads/2013/05/icon-google-plus.png"><img style="margin-bottom:0px;width:25px; height:25px;position: relative; top: 5px;" class="alignnone size-full wp-image-330" alt="icon-google-plus" src="http://kiajovanie.com/wp-content/uploads/2013/05/icon-google-plus.png" width="50" height="50" /></a> <a href="http://kiajovanie.com/wp-content/uploads/2013/05/icon-linkedin.png"><img style="margin-bottom:0px;width:25px; height:25px" class="alignnone size-medium wp-image-331" alt="icon-linkedin" src="http://kiajovanie.com/wp-content/uploads/2013/05/icon-linkedin.png" width="50" height="50" /></a> <a href="https://twitter.com/CUnwrapped" target="_blank"><img style="margin-bottom:0px;width:25px; height:25px" class="alignnone size-medium wp-image-332" alt="icon-twitter" src="http://kiajovanie.com/wp-content/uploads/2013/05/icon-twitter.png" width="50" height="50" /></a>
+Join, share, and help us spread the word:<br><br>
+<a href="http://facebook.com/collegeunwrapped" target="_blank"><img style="margin-bottom:0px;width:25px; height:25px" class="alignnone size-full wp-image-329" alt="icon-facebook" src="http://kiajovanie.com/wp-content/uploads/2013/05/black-icon-facebook.png" width="50" height="50" /></a> <a href="http://kiajovanie.com/wp-content/uploads/2013/05/icon-linkedin.png"><img style="margin-bottom:0px;width:25px; height:25px" class="alignnone size-medium wp-image-331" alt="icon-linkedin" src="http://kiajovanie.com/wp-content/uploads/2013/05/black-icon-instagram.png" width="50" height="50" /></a> <a href="https://twitter.com/CUnwrapped" target="_blank"><img style="margin-bottom:0px;width:25px; height:25px" class="alignnone size-medium wp-image-332" alt="icon-twitter" src="http://kiajovanie.com/wp-content/uploads/2013/05/black-icon-twitter.png" width="50" height="50" /></a>
 
 <!-- Like button -->
 <div id="sharing" style="opacity:0;">
