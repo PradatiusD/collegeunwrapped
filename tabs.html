@@ -1,5 +1,12 @@
 <!-- JQuery to remove all and force click featured -->
 <script>
-	jQuery('.filterall').hide();
-	jQuery('.segment-2').eq(0).css('background','none').find('a').trigger('click')	
+jQuery('.filterall').hide();
+jQuery('.segment-2').eq(0).css('background','none');
+jQuery(document).ready(function($){
+	$('div.container.clearfix.slideshow.isotopecontainer.isotope').hide();
+	setTimeout(function () {
+    	$('.segment-2').eq(0).find('a').trigger('click');
+    	$('div.container.clearfix.slideshow.isotopecontainer.isotope').show();  
+	}, 1000)
+})
 </script>
