@@ -1,3 +1,52 @@
 <!-- For individual posts -->
 
 <a href="http://facebook.com/collegeunwrapped" target="_blank"><img src="http://kiajovanie.com/wp-content/uploads/2013/05/icon-circle-facebook.png" alt="icon-circle-facebook" width="25" height="25" class="alignnone size-full wp-image-341" /></a><a href="http://kiajovanie.com/wp-content/uploads/2013/05/icon-circle-linkedin.png"><img src="http://kiajovanie.com/wp-content/uploads/2013/05/icon-circle-linkedin.png" alt="icon-circle-linkedin" width="25" height="25" class="alignnone size-medium wp-image-342" /></a><a href="https://twitter.com/CUnwrapped" target="_blank"><img src="http://kiajovanie.com/wp-content/uploads/2013/05/icon-circle-twitter.png" alt="icon-circle-twitter" width="25" height="25" class="alignnone size-medium wp-image-343" /></a>
+
+<!-- Individual twitter portfolio post code -->
+<a href="https://twitter.com/share" class="twitter-share-button" data-url="kiajovanie.com" data-text="Hey edit me right here" data-via="CUnwrapped" data-hashtags="CUnwrapped">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+<!-- Individual facebook portfolio post code -->
+<a href="http://kiajovanie.com/portfolio/katherine-petti-reflections-on-college-unwrapped/" target="_blank">
+  Share on Facebook
+</a>
+
+
+<!-- Programatic twitter -->
+
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+
+		function twitterShare () {
+			// Get the unique portfolio item URL as well as the title of the post 
+			var pageURL = $('.portfolio h3 a').attr('href');
+			console.log(pageURL);
+
+			var postTitle = $('.portfolio h3 a').text()
+			console.log(postTitle);
+
+			//Place the variables inside the twitter button widget
+			var twitterButton = '<a href="https://twitter.com/share" class="twitter-share-button" data-url="'+pageURL+'" data-text="'+postTitle+'" data-via="CUnwrapped" data-hashtags="CUnwrapped" style="display:none">Tweet</a>';
+			console.log(twitterButton);
+
+			var twitterSDK = '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script>'
+
+			// Now put that code at the end of the entry content and fade it in
+
+			$('.ajaxcontent').append(twitterButton + twitterSDK);
+
+			$('.ajaxcontent .twitter-share-button').fadeIn('slow');
+		}
+
+		//Make this function fire when a person clicks on a slide post only if it is inside the homepage
+		$("body").on("mouseenter", ".ajaxcontent", function(){
+				if (document.URL === "http://collegeunwrapped.com/"){
+					console.log('Hovered into ajax');
+					twitterShare();
+					$.getScript('http://platform.twitter.com/widgets.js');
+				}
+			});
+		$("body").on("mouseleave", ".ajaxcontent", function(){
+			$('.ajaxcontent .twitter-share-button').remove();
+			});
+	})
+</script>
