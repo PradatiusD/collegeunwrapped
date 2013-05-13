@@ -48,25 +48,23 @@ jQuery(document).ready(function($){
             var twitterButton = '<a href="https://twitter.com/share" class="twitter-share-button" data-url="'+pageURL+'" data-text="'+postTitle+'" data-via="CUnwrapped" data-hashtags="CUnwrapped" style="display:none">Tweet</a>';
             console.log(twitterButton);
 
-            var twitterSDK = '<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document, "script", "twitter-wjs");</script>'
-
             // Now put that code at the end of the entry content and fade it in
 
-            $('.ajaxcontent').append(twitterButton + twitterSDK);
+            $('.ajaxcontent').append(twitterButton);
 
             $('.ajaxcontent .twitter-share-button').fadeIn('slow');
         }
 
         //Make this function fire when a person clicks on a slide post only if it is inside the homepage
-        $("body").on("mouseenter", ".ajaxcontent", function(){
+        $("body").on("mouseenter", "#ajaxouter", function(){
                 if (document.URL === "http://collegeunwrapped.com/"){
                     console.log('Hovered into ajax');
                     twitterShare();
                     $.getScript('http://platform.twitter.com/widgets.js');
                 }
             });
-        $("body").on("mouseleave", ".ajaxcontent", function(){
-            $('.ajaxcontent .twitter-share-button').remove();
+        $("body").on("mouseleave", "#ajaxouter", function(){
+            $('#ajaxouter .twitter-share-button').remove();
             });
     })
 </script>
