@@ -36,7 +36,7 @@ jQuery(document).ready(function($){
 <script type="text/javascript">
     jQuery(document).ready(function($){
 
-        function twitterShare () {
+        function twitterHomepageShare () {
             // Get the unique portfolio item URL as well as the title of the post 
             var pageURL = $('.portfolio h3 a').attr('href');
             console.log(pageURL);
@@ -59,13 +59,43 @@ jQuery(document).ready(function($){
         $("body").on("mouseenter", "#ajaxouter", function(){
                 if (document.URL === "http://collegeunwrapped.com/"){
                     console.log('Hovered into ajax');
-                    twitterShare();
+                    twitterHomepageShare();
                     $.getScript('http://platform.twitter.com/widgets.js');
                 }
             });
         $("body").on("mouseleave", "#ajaxouter", function(){
             $('#ajaxouter .twitter-share-button').remove();
             });
+
+
+        function twitterPortfolioShare (){
+            // Get the unique portfolio item URL as well as the title of the post 
+            var pageURL = document.URL;
+            console.log(pageURL);
+
+            var postTitle = $('.portfolio h1').text()
+            console.log(postTitle);
+
+            //Place the variables inside the twitter button widget
+            var twitterButton = '<a href="https://twitter.com/share" class="twitter-share-button" data-url="'+pageURL+'" data-text="'+postTitle+'" data-via="CUnwrapped" data-hashtags="CUnwrapped" style="display:none">Tweet</a>';
+            console.log(twitterButton);
+
+            // Now put that code at the end of the entry content and fade it in
+
+            $('.column-last').append(twitterButton);
+
+            $('.column-last .twitter-share-button').fadeIn('slow');
+        }
+
+        // For portfolio items, check to see if it begins with http://collegeunwrapped.com/portfolio/
+
+        var portfolioitemURL = document.URL;
+        portfolioitemURL = portfolioitemURL.substring(0,38);
+
+        if (portfolioitemURL === "http://collegeunwrapped.com/portfolio/" ) {
+            twitterPortfolioShare();
+            $.getScript('http://platform.twitter.com/widgets.js');
+        }
     })
 </script>
 
