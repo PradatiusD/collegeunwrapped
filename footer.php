@@ -28,7 +28,7 @@ jQuery(document).ready(function($){
     	$('.segment-2').eq(0).find('a').trigger('click');
     	$('div.container.clearfix.slideshow.isotopecontainer.isotope').show();  
 	}, 1500);
-	$('#ag_news_widget-2 a, #ag_news_widget-3 a').attr('href', 'http://kiajovanie.com/blog');
+	$('#ag_news_widget-3 a').attr('href', 'http://collegeunwrapped.com/blog');
 })
 </script>
 <!-- Programatic twitter -->
