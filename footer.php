@@ -37,12 +37,12 @@ jQuery(document).ready(function($){
     jQuery(document).ready(function($){
 
         // Fix any links that start with Kiajovanie.com and change them to collegeunwrapped.com
-        function fixlinks () {
-            var spotlightLink = $('.porfolio, .entry-content a').attr('href');
+        function fixlinks (selector) {
+            var spotlightLink = $(selector).attr('href');
             var anchorlink = spotlightLink.substring(0,21);
             if ( anchorlink === "http://kiajovanie.com") {
                spotlightLink = spotlightLink.substring(21);
-               $('.porfolio, .entry-content a').attr('href', "http://collegeunwrapped.com"+spotlightLink);
+               $(selector).attr('href', "http://collegeunwrapped.com"+spotlightLink);
             }
         } 
 
@@ -74,6 +74,7 @@ jQuery(document).ready(function($){
                 if (document.URL === "http://collegeunwrapped.com/"){
                     console.log('Hovered into ajax');
                     HomepageShare();
+                    fixlinks ('.porfolio, .entry-content a');
                     $.getScript('http://platform.twitter.com/widgets.js');
                 }
             });
@@ -111,6 +112,7 @@ jQuery(document).ready(function($){
 
         if (portfolioitemURL === "http://collegeunwrapped.com/portfolio/" ) {
             PortfolioShare();
+            fixlinks('.column-last strong a')
             $.getScript('http://platform.twitter.com/widgets.js');
         }
 
