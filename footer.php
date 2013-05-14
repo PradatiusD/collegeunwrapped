@@ -48,11 +48,15 @@ jQuery(document).ready(function($){
             var twitterButton = '<a href="https://twitter.com/share" class="twitter-share-button" data-url="'+pageURL+'" data-text="'+postTitle+'" data-via="CUnwrapped" data-hashtags="CUnwrapped" style="display:none">Tweet</a>';
             console.log(twitterButton);
 
+            //Create the facebook append html and import those variables into the text string
+            var facebookAppend = "<fb:like layout='button_count' href='"+pageURL+"'font='tahoma'></fb:like>"
+
             // Now put that code at the end of the entry content and fade it in
 
-            $('.ajaxcontent').append(twitterButton);
+            $('.ajaxcontent').append(twitterButton+facebookAppend);
+            FB.XFBML.parse(jQuery('.ajaxcontent').get(0));
 
-            $('.ajaxcontent .twitter-share-button').fadeIn('slow');
+            $('.ajaxcontent .twitter-share-button, .ajaxcontent .fb_iframe_widget').fadeIn('slow');
         }
 
         //Make this function fire when a person clicks on a slide post only if it is inside the homepage
@@ -64,7 +68,7 @@ jQuery(document).ready(function($){
                 }
             });
         $("body").on("mouseleave", "#ajaxouter", function(){
-            $('#ajaxouter .twitter-share-button').remove();
+            $('#ajaxouter .twitter-share-button, #ajaxouter .fb_iframe_widget').remove();
             });
 
 
@@ -100,6 +104,7 @@ jQuery(document).ready(function($){
             $.getScript('http://platform.twitter.com/widgets.js');
         }
     })
+
 </script>
 
 
