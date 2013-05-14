@@ -82,6 +82,10 @@ jQuery(document).ready(function($){
             $('#ajaxouter .twitter-share-button, #ajaxouter .fb_iframe_widget').remove();
             });
 
+        //Fire the twitter script again on portfolio slideshows to debug odd display of picture items
+        $("body").on("mouseenter", ".ajaxslider", function(){
+            $.getScript('http://platform.twitter.com/widgets.js');
+            });
 
         function PortfolioShare (){
             // Get the unique portfolio item URL as well as the title of the post 
