@@ -36,6 +36,16 @@ jQuery(document).ready(function($){
 <script type="text/javascript">
     jQuery(document).ready(function($){
 
+        // Fix any links that start with Kiajovanie.com and change them to collegeunwrapped.com
+        function fixlinks () {
+            var spotlightLink = $('.porfolio, .entry-content a').attr('href');
+            var anchorlink = spotlightLink.substring(0,21);
+            if ( anchorlink === "http://kiajovanie.com") {
+               spotlightLink = spotlightLink.substring(21);
+               $('.porfolio, .entry-content a').attr('href', "http://collegeunwrapped.com"+spotlightLink);
+            }
+        } 
+
         function HomepageShare () {
             // Get the unique portfolio item URL as well as the title of the post 
             var pageURL = $('.portfolio h3 a').attr('href');
@@ -103,6 +113,7 @@ jQuery(document).ready(function($){
             PortfolioShare();
             $.getScript('http://platform.twitter.com/widgets.js');
         }
+
     })
 
 </script>
