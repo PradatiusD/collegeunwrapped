@@ -36,7 +36,7 @@ jQuery(document).ready(function($){
 <script type="text/javascript">
     jQuery(document).ready(function($){
 
-        function twitterHomepageShare () {
+        function HomepageShare () {
             // Get the unique portfolio item URL as well as the title of the post 
             var pageURL = $('.portfolio h3 a').attr('href');
             console.log(pageURL);
@@ -59,7 +59,7 @@ jQuery(document).ready(function($){
         $("body").on("mouseenter", "#ajaxouter", function(){
                 if (document.URL === "http://collegeunwrapped.com/"){
                     console.log('Hovered into ajax');
-                    twitterHomepageShare();
+                    HomepageShare();
                     $.getScript('http://platform.twitter.com/widgets.js');
                 }
             });
@@ -68,7 +68,7 @@ jQuery(document).ready(function($){
             });
 
 
-        function twitterPortfolioShare (){
+        function PortfolioShare (){
             // Get the unique portfolio item URL as well as the title of the post 
             var pageURL = document.URL;
             console.log(pageURL);
@@ -80,11 +80,14 @@ jQuery(document).ready(function($){
             var twitterButton = '<a href="https://twitter.com/share" class="twitter-share-button" data-url="'+pageURL+'" data-text="'+postTitle+'" data-via="CUnwrapped" data-hashtags="CUnwrapped" style="display:none">Tweet</a>';
             console.log(twitterButton);
 
-            // Now put that code at the end of the entry content and fade it in
+            //Create the facebook append html
+            var facebookAppend = "<fb:like layout='button_count' href='"+pageURL+"'font='tahoma'></fb:like>"
 
-            $('.column-last').append(twitterButton);
+            // Now put that code at the end of the portfolio entry content and fade it in
 
-            $('.column-last .twitter-share-button').fadeIn('slow');
+            $('.column-last').append(twitterButton + facebookAppend);
+            FB.XFBML.parse(jQuery('.column-last').get(0));
+            $('.column-last .twitter-share-button, column-last .fb_ltr').fadeIn('slow');
         }
 
         // For portfolio items, check to see if it begins with http://collegeunwrapped.com/portfolio/
@@ -93,7 +96,7 @@ jQuery(document).ready(function($){
         portfolioitemURL = portfolioitemURL.substring(0,38);
 
         if (portfolioitemURL === "http://collegeunwrapped.com/portfolio/" ) {
-            twitterPortfolioShare();
+            PortfolioShare();
             $.getScript('http://platform.twitter.com/widgets.js');
         }
     })
