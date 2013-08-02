@@ -347,6 +347,13 @@ var $selector = '*';
 /*-----------------------------------------------------------------------------------*/
 /* Hover Effects
 /*-----------------------------------------------------------------------------------*/
+	
+
+	jQuery('.portfolioitem').addClass('darkbg');
+	jQuery('ul.slides').css('opacity',0);
+	jQuery('.8-virtual-tour').removeClass('darkbg');
+	jQuery('.8-virtual-tour .slides').css('opacity',1);	
+
 
 	function hover_overlay() {
        
@@ -354,13 +361,16 @@ var $selector = '*';
                  var $this = jQuery(this),
                  	 $background = $this.closest('.portfolioitem');
                   $this.hover( function() {
-                  	  $background.addClass('darkbg');
-                      jQuery($this).stop().animate({opacity : 0.1}, 500);
-                }, function() {
+
                     jQuery($this).stop().animate({opacity : 1}, 500, function(){
                     	$background.removeClass('darkbg');
                     });
               
+                }, function() {
+
+                  	  $background.addClass('darkbg');
+                      jQuery($this).stop().animate({opacity : 0.1}, 500);
+
                 });
          });
     }
